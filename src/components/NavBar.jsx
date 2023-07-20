@@ -1,24 +1,24 @@
 import React from 'react'
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from './CartWidget';
-import logo from '../img/logo.png';
+import logo from '../assets/img/logo.png';
 
 
 
 const NavBar = () => {
     return (
         <div>
-            <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+            <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark" fixed="top">
                 <Container fluid>
                 <Navbar.Brand href="#home">
                         <img
-                            alt=""
+                            alt="Logo de Pop Glam"
                             src={logo}
-                            width="40"
-                            height="40"
+                            width="100"
+                            height="100"
                             className="d-inline-block align-top"
                         />{' '}
-                        Pop Glam</Navbar.Brand>
+                        </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
