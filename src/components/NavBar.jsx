@@ -1,8 +1,8 @@
 import React from 'react'
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import CartWidget from './CartWidget';
 import logo from '../assets/img/logo.png';
-
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 
 const NavBar = () => {
@@ -10,15 +10,17 @@ const NavBar = () => {
         <div>
             <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark" fixed="top">
                 <Container fluid>
-                <Navbar.Brand href="#home">
-                        <img
-                            alt="Logo de Pop Glam"
-                            src={logo}
-                            width="100"
-                            height="100"
-                            className="d-inline-block align-top"
-                        />{' '}
-                        </Navbar.Brand>
+                    <Navbar.Brand>
+                        <NavLink to={"/"}>
+                            <img
+                                alt="Logo de Pop Glam"
+                                src={logo}
+                                width="100"
+                                height="100"
+                                className="d-inline-block align-top"
+                            />
+                        </NavLink>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -26,25 +28,30 @@ const NavBar = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#home" as="div">Home</Nav.Link>
-                            <Nav.Link href="#blog" as="div">Blog</Nav.Link>
-                            <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#maquillaje">Maquillaje</NavDropdown.Item>
+                            <NavLink to={"/"} className="nav-link">Home</NavLink>
+                            <NavDropdown title="Shop" id="navbarScrollingDropdown">
+                                <NavLink to={`/category/${"makeup"}`} className="dropdown-item">
+                                    Make up
+                                </NavLink>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#skin">
+                                <NavLink to={`/category/${"skincare"}`} className="dropdown-item">
                                     Skin care
-                                </NavDropdown.Item>
+                                </NavLink>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#accesorios">
-                                    Accesorios
-                                </NavDropdown.Item>
+                                <NavLink to={`/category/${"accesories"}`} className="dropdown-item">
+                                    Accesories
+                                </NavLink>
                             </NavDropdown>
-                            <Nav.Link href="#ofertas" as="div">
-                                Ofertas
-                            </Nav.Link>
+                            <NavLink to={"/contact"} className="nav-link">
+                                Contact
+                            </NavLink>
+                            <NavLink to={"/about"} className="nav-link">About</NavLink>
                         </Nav>
                     </Navbar.Collapse>
-                    <CartWidget />
+                    <NavLink to={"/cart"}>
+                        <CartWidget />
+                    </NavLink>
+
                 </Container>
             </Navbar>
         </div>

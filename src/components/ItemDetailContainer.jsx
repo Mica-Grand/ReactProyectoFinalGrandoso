@@ -1,12 +1,9 @@
-import React from 'react';
-import ItemList from './ItemList';
-import Container from 'react-bootstrap/Container';
-import { useParams } from 'react-router-dom';
+import React from 'react'
+import ItemDetail from './ItemDetail'
 
 
 
-const ItemListContainer = () => {
-    const {category} = useParams()
+const ItemDetailContainer = () => {
 
     const products = [
 
@@ -17,8 +14,6 @@ const ItemListContainer = () => {
         { id: 5, category: "skincare", name: "Hydrating Moisturizer", picture: "https://images.unsplash.com/photo-1629732047847-50219e9c5aef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", description: "Quench your skin's thirst with our Hydrating Moisturizer. Infused with hyaluronic acid and natural extracts, this moisturizer locks in hydration, leaving your skin supple and radiant all day long.", stock: 12, price: 7200 },
         { id: 6, category: "accesories", name: "Deluxe Makeup Brush Set", picture: "https://images.unsplash.com/photo-1526045478516-99145907023c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80", description: "Elevate your makeup routine with our Deluxe Makeup Brush Set. This comprehensive collection includes an array of high-quality brushes designed to achieve flawless application. From blending to contouring, each brush is crafted for precision and ease. Create stunning looks with confidence and enjoy professional results every time.", stock: 20, price: 3500 }
     ];
-
-
 
 
     const getProducts = new Promise((resolve, reject) => {
@@ -40,14 +35,14 @@ const ItemListContainer = () => {
             console.log(error)
         })
 
-    const filteredProducts = products.filter((product) => product.category === category)
 
     return (
-        <Container className="d-flex">
-            <ItemList products={filteredProducts}
+        <>
+            <ItemDetail
+                products={products}
             />
-        </Container>
+        </>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

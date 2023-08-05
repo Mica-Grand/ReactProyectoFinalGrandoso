@@ -9,9 +9,7 @@ const CartWidget = () => {
     return (
         <div>
             <Container className="d-flex align-items-center">
-                <a href="/carrito" className="text-white text-decoration-none">
-                    <CartFill size={24} />
-                </a>
+                <CartFill size={24} className="text-white text-decoration-none"/>
                 <Badge bg="danger" className="ms-2" pill>
                     9
                 </Badge>
