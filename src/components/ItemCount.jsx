@@ -1,37 +1,37 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { Button } from 'react-bootstrap';
+import {CartContext} from '../context/CartContext'
 
 
-const ItemCount = ({stock}) => {
-    const [count, setCount] = useState(0);
-    const [stockLimitReached, setStockLimitReached] = useState(false);
+const ItemCount = ({quantity, setShowCompletePurchase, handleDecrement, handleIncrement, p }) => {
+    
 
+    const {cart, setCart} = useContext(CartContext)
 
-    const handleDecrement = () => {
-        if (count > 0) {
-            setCount((prevCount) => prevCount - 1);
-            setStockLimitReached(false);
-        }
-    };
-
-    const handleIncrement = () => {
-        if (count < stock) {
-            setCount((prevCount) => prevCount + 1);
-            setStockLimitReached(false);
+    const handleAdd = (quantity) => {
+        const itemAdded = { ...p, quantity };
+        const newCart = [...cart];
+        const inCart = newCart.find((product) => product.id === itemAdded.id);
+    
+        if (inCart) {
+            inCart.quantity += quantity;
         } else {
-            setStockLimitReached(true);
+            newCart.push(itemAdded);
         }
+        setCart(newCart);
+
+        setShowCompletePurchase(true);
     };
+    
 
     return (
         <div>
             <div className="counter">
                 <Button variant="outline-primary" className="count-button" onClick={handleDecrement}>-</Button>
-                <p className="count">{count}</p>
+                <p className="count">{quantity}</p>
                 <Button variant="outline-primary" className="count-button" onClick={handleIncrement}>+</Button>
             </div>
-            {stockLimitReached && <p style={{ color: 'red' }}>Stock limit reached!</p>}
-            <Button className="custom-btn custom-btn-cart">Add to cart</Button>
+            <Button className="custom-btn custom-btn-cart" onClick={() => handleAdd(quantity)}>Add to cart</Button>
         </div>
     );
 };

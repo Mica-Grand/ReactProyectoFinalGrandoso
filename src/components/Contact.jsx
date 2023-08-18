@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './Form'
+import MyForm from './MyForm'
 import { Container } from 'react-bootstrap'
 
 const Contact = () => {
@@ -8,7 +8,7 @@ const Contact = () => {
             <Container className="margin">
                 <h1>Contact Us</h1>
                 <p>Please reach out to us using the form below.</p>
-                <Form/>
+                <MyForm />
             </Container>
         </div>
     )

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, name, description, price, picture }) => {
+const Item = ({ id, name, description, price, picture, stock }) => {
     return (
         <Container className="margin">
             <Row xs={1} md={2} lg={3} className="g-4">
@@ -18,9 +18,7 @@ const Item = ({ id, name, description, price, picture }) => {
                                         Details
                                     </Button>
                                 </Link>
-                                <Button className="custom-btn custom-btn-cart">
-                                    Add to Cart
-                                </Button>
+
                             </div>
                         </Card.Body>
                     </Card>
