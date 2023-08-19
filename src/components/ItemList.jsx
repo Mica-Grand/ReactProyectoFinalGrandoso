@@ -1,26 +1,24 @@
 import React from 'react';
-import Item from './Item'
+import { Container, Row } from 'react-bootstrap';
+import Item from './Item';
 
-const ItemList = ({products}) => {
-
+const ItemList = ({ products }) => {
     return (
-        <>
-            {products.map((p) => {
-                return (
+        <Container>
+            <Row xs={1} sm={2} md={3}>
+                {products.map((product) => (
                     <Item
-                        key={p.id}
-                        id={p.id}
-                        name={p.name}
-                        picture={p.picture}
-                        description={p.description}
-                        stock={p.stock}
-                        price={p.price}
+                        key={product.id}
+                        id={product.id}
+                        name={product.name}
+                        picture={product.picture}
+                        description={product.description}
+                        price={product.price}
                     />
-                )
-            }
-            )}  
-        </>
-    )
-}
+                ))}
+            </Row>
+        </Container>
+    );
+};
 
-export default ItemList
+export default ItemList;

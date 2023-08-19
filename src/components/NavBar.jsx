@@ -41,6 +41,11 @@ const NavBar = () => {
                                 <NavLink to={`/category/${"accesories"}`} className="dropdown-item">
                                     Accesories
                                 </NavLink>
+                                <NavDropdown.Divider />
+                                <NavLink to={`/category/all`} className="dropdown-item">
+                                    All
+                                </NavLink>
+
                             </NavDropdown>
                             <NavLink to={"/contact"} className="nav-link">
                                 Contact

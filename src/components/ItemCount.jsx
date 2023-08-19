@@ -3,25 +3,27 @@ import { Button } from 'react-bootstrap';
 import {CartContext} from '../context/CartContext'
 
 
-const ItemCount = ({quantity, setShowCompletePurchase, handleDecrement, handleIncrement, p }) => {
+const ItemCount = ({quantity, setShowCompletePurchase, handleDecrement, handleIncrement, product, id}) => {
     
 
     const {cart, setCart} = useContext(CartContext)
 
     const handleAdd = (quantity) => {
-        const itemAdded = { ...p, quantity };
-        const newCart = [...cart];
-        const inCart = newCart.find((product) => product.id === itemAdded.id);
+        const itemAdded = { ...product, quantity };
+        const existingCartItem = cart.find((cartItem) => cartItem.id === itemAdded.id);
     
-        if (inCart) {
-            inCart.quantity += quantity;
+        if (existingCartItem) {
+            existingCartItem.quantity += quantity;
+            setCart([...cart]);
         } else {
-            newCart.push(itemAdded);
+            setCart([...cart, itemAdded]);
         }
-        setCart(newCart);
 
         setShowCompletePurchase(true);
+        console.log(cart)
     };
+
+    
     
 
     return (

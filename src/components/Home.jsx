@@ -11,7 +11,7 @@ const Home = ({greeting, slogan}) => {
                 <div className="hero-content">
                     <h1 className="greeting">{greeting}</h1>
                     <h2 className="slogan">{slogan}</h2>
-                    <Link to={`/category/${"makeup"}`}>
+                    <Link to={`/category/all`} >
                         <button className="hero-button">Let's shine!</button>
                     </Link>
                 </div>

@@ -1,68 +1,94 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
-import { Container, ListGroup, Row, Col, Button } from 'react-bootstrap';
+import { Container, ListGroup, Row, Col, Button, ButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import CheckoutForm from './CheckoutForm';
 
 
 const Cart = () => {
     const { cart, setCart } = useContext(CartContext)
-    const cartTotal = cart.reduce((total, p) => total + p.price * p.quantity, 0);
+
+    const [currentStep, setCurrentStep] = useState("cart");
+
+    const cartTotal = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+
     const handleEmpty = () => {
         setCart([]);
     }
 
+    const handleProceedToCheckout = () => {
+        setCurrentStep("checkout");
+    };
+
+    const handleGoBack = () => {
+        setCurrentStep("cart");
+    };
+
     return (
         <div>
-
-            <Container>
-                <h1 className="margin">Cart</h1>
+            {currentStep === "cart" && (
                 <Container>
-                    <ListGroup className="mt-5">
-                        {cart.map((p) => (
-                            <ListGroup.Item key={p.id}>
-                                <Row>
-                                    <Col xs={3} className="align-self-start">
-                                        <img src={p.picture}
-                                            alt={p.name}
-                                            className="align-self-start mr-3"
-                                            style={{ maxWidth: '100px' }}
-                                        />
-                                    </Col>
-                                    <Col xs={9}>
-                                        <div className="d-flex justify-content-between align-items-start">
-                                            <div>
-                                                <h2>{p.name}</h2>
-                                                <p>Unit price: ${p.price}</p>
+                    <h1 className="margin">Cart</h1>
+                    <Container>
+                        <ListGroup className="mt-5">
+
+                            {cart.map((product) => (
+
+                                <ListGroup.Item key={product.id}>
+                                    <Row>
+                                        <Col xs={3} className="align-self-start">
+                                            <img src={product.picture}
+                                                alt={product.name}
+                                                className="align-self-start mr-3"
+                                                style={{ maxWidth: '100px' }}
+                                            />
+                                        </Col>
+                                        <Col xs={9}>
+                                            <div className="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <h2>{product.name}</h2>
+                                                    <p>Unit price: ${product.price}</p>
+                                                </div>
+                                                <div className="text-end">
+                                                    <p>Qty: {product.quantity}</p>
+                                                    <p>Total price: ${product.price * product.quantity}</p>
+                                                </div>
                                             </div>
-                                            <div className="text-end">
-                                                <p>Qty: {p.quantity}</p>
-                                                <p>Total price: ${p.price * p.quantity}</p>
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                            ))}
+                            {cart.length > 0 ? (
+
+                                <ListGroup.Item>
+                                    <Row>
+                                        <div className="text-end">
+                                            <h2>Total: ${cartTotal}</h2>
+                                            <div>
+                                                <Button variant="secondary" onClick={handleEmpty}>Empty Cart</Button>
+                                                <Button variant="primary" onClick={handleProceedToCheckout}>Proceed to Checkout</Button>
                                             </div>
                                         </div>
-                                    </Col>
-                                </Row>
-                            </ListGroup.Item>
-                        ))}
-                        {cart.length > 0 ?
-
-                            <ListGroup.Item>
-                                <Row>
-                                    <div className="text-end">
-                                        <h2>Total: ${cartTotal}</h2>
-                                        <Button onClick={handleEmpty}>Empty Cart</Button>
-                                    </div>
-                                </Row>
-                            </ListGroup.Item> :
-                            <div>
-                                <h2>Your cart is empty</h2>
-                                <Link to={`/category/${"makeup"}`}>
-                                    <Button>Start shopping!</Button>
-                                </Link>
-                            </div>
-                        }
-                    </ListGroup>
+                                    </Row>
+                                </ListGroup.Item>) :
+                                <div>
+                                    <h2>Your cart is empty</h2>
+                                    <Link to={`/category/all`}>
+                                        <Button>Start shopping!</Button>
+                                    </Link>
+                                </div>
+                            }
+                        </ListGroup>
+                    </Container>
                 </Container>
-            </Container>
+            )}
+            {currentStep === "checkout" && (
+
+                <div>
+                    <CheckoutForm handleGoBack={handleGoBack} />
+                </div>
+            )}
+
 
         </div>
     )

@@ -1,30 +1,25 @@
 import React from 'react';
-import { Container, Card, Button, Row, Col } from 'react-bootstrap';
+import { Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, name, description, price, picture, stock }) => {
+const Item = ({ id, name, price, picture }) => {
     return (
-        <Container className="margin">
-            <Row xs={1} md={2} lg={3} className="g-4">
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={picture} alt={name} className="custom-img"/>
-                        <Card.Body>
-                            <Card.Title>{name}</Card.Title>
-                            <Card.Text>Price: ${price}</Card.Text>
-                            <div className="d-flex justify-content-between">
-                                <Link to={`/item/${id}`}>
-                                    <Button className="custom-btn custom-btn-details">
-                                        Details
-                                    </Button>
-                                </Link>
-
-                            </div>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+        <Col xs={12} sm={6} md={4} className="margin">
+            <Card className="h-100">
+                <Card.Img variant="top" src={picture} alt={name} className="custom-img" />
+                <Card.Body className="d-flex flex-column justify-content-between">
+                    <div>
+                        <Card.Title>{name}</Card.Title>
+                        <Card.Text>Price: ${price}</Card.Text>
+                    </div>
+                    <Link to={`/item/${id}`}>
+                        <Button className="custom-btn custom-btn-details">
+                            Details
+                        </Button>
+                    </Link>
+                </Card.Body>
+            </Card>
+        </Col>
     );
 };
 
