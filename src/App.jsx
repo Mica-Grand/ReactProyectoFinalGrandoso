@@ -8,6 +8,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext';
+import Footer from './components/Footer';
 
 
 
@@ -38,7 +39,8 @@ const App = () => {
             <Route exact path="/item/:id" element={<ItemDetailContainer />} />
 
           </Routes>
-
+            
+            <Footer />
 
       </BrowserRouter>
       </CartProvider>
