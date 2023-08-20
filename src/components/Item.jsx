@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ id, name, price, picture }) => {
     return (
-        <Col xs={12} sm={6} md={4} className="margin">
+        <Col xs={12} sm={6} md={4} >
             <Card className="h-100">
                 <Card.Img variant="top" src={picture} alt={name} className="custom-img" />
                 <Card.Body className="d-flex flex-column justify-content-between">

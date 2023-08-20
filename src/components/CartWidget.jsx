@@ -14,7 +14,7 @@ const CartWidget = () => {
             <Container className="d-flex align-items-center">
                 <CartFill size={24} className="text-white text-decoration-none" />
                 <Badge bg="danger" className="ms-2" pill>
-                    {totalQuantity}
+                    <span>{totalQuantity}</span>
                 </Badge>
             </Container>
         </div>

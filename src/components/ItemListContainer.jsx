@@ -8,28 +8,30 @@ import { collection, getDocs, getFirestore } from 'firebase/firestore'
 
 
 const ItemListContainer = () => {
-    
+
     const [products, setProducts] = useState([])
 
-    const {category} = useParams()
+    const { category } = useParams()
 
     useEffect(() => {
         const db = getFirestore();
         const itemsCollection = collection(db, "Productos");
-    
+
         getDocs(itemsCollection)
             .then((snapshot) => {
                 const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
                 setProducts(docs);
             });
     }, []);
-    
+
 
     const filteredProducts = category && category !== "all" ? products.filter((product) => product.category === category) : products;
+    const title = category
 
     return (
+
         <Container className="d-flex">
-            <ItemList products={filteredProducts}
+            <ItemList products={filteredProducts} title={title}
             />
         </Container>
     )

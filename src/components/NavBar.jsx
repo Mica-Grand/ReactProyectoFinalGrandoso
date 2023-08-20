@@ -53,7 +53,7 @@ const NavBar = () => {
                             <NavLink to={"/about"} className="nav-link">About</NavLink>
                         </Nav>
                     </Navbar.Collapse>
-                    <NavLink to={"/cart"}>
+                    <NavLink to={"/cart"} className="text-decoration-none">
                         <CartWidget />
                     </NavLink>
 

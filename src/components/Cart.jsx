@@ -3,6 +3,8 @@ import { CartContext } from '../context/CartContext'
 import { Container, ListGroup, Row, Col, Button, ButtonGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CheckoutForm from './CheckoutForm';
+import { Trash } from 'react-bootstrap-icons';
+
 
 
 const Cart = () => {
@@ -15,6 +17,11 @@ const Cart = () => {
     const handleEmpty = () => {
         setCart([]);
     }
+
+    const handleRemoveProduct = (productId) => {
+        const updatedCart = cart.filter(product => product.id !== productId);
+        setCart(updatedCart);
+    };
 
     const handleProceedToCheckout = () => {
         setCurrentStep("checkout");
@@ -43,16 +50,20 @@ const Cart = () => {
                                                 style={{ maxWidth: '100px' }}
                                             />
                                         </Col>
-                                        <Col xs={9}>
-                                            <div className="d-flex justify-content-between align-items-start">
-                                                <div>
-                                                    <h2>{product.name}</h2>
-                                                    <p>Unit price: ${product.price}</p>
-                                                </div>
-                                                <div className="text-end">
-                                                    <p>Qty: {product.quantity}</p>
-                                                    <p>Total price: ${product.price * product.quantity}</p>
-                                                </div>
+                                        <Col xs={7}>
+                                            <div>
+                                                <h2>{product.name}</h2>
+                                                <p>Unit price: ${product.price}</p>
+                                            </div>
+                                        </Col>
+                                        <Col xs={2} className="text-end">
+                                            <div>
+                                                <p>Qty: {product.quantity}</p>
+                                                <p>Total price: ${product.price * product.quantity}</p>
+                                                <Trash 
+                                                    className="trash-icon"
+                                                    onClick={() => handleRemoveProduct(product.id)}
+                                                />
                                             </div>
                                         </Col>
                                     </Row>
@@ -65,8 +76,10 @@ const Cart = () => {
                                         <div className="text-end">
                                             <h2>Total: ${cartTotal}</h2>
                                             <div>
-                                                <Button variant="secondary" onClick={handleEmpty}>Empty Cart</Button>
-                                                <Button variant="primary" onClick={handleProceedToCheckout}>Proceed to Checkout</Button>
+                                                <ButtonGroup>
+                                                    <Button className="m-2" variant="secondary" onClick={handleEmpty}>Empty Cart</Button>
+                                                    <Button className="m-2" variant="primary" onClick={handleProceedToCheckout}>Proceed to Checkout</Button>
+                                                </ButtonGroup>
                                             </div>
                                         </div>
                                     </Row>
@@ -74,23 +87,26 @@ const Cart = () => {
                                 <div>
                                     <h2>Your cart is empty</h2>
                                     <Link to={`/category/all`}>
-                                        <Button>Start shopping!</Button>
+                                        <Button className="m-3">Start shopping!</Button>
                                     </Link>
                                 </div>
                             }
                         </ListGroup>
                     </Container>
                 </Container>
-            )}
-            {currentStep === "checkout" && (
+            )
+            }
+            {
+                currentStep === "checkout" && (
 
-                <div>
-                    <CheckoutForm handleGoBack={handleGoBack} />
-                </div>
-            )}
+                    <div>
+                        <CheckoutForm handleGoBack={handleGoBack} total={cartTotal} />
+                    </div>
+                )
+            }
 
 
-        </div>
+        </div >
     )
 }
 

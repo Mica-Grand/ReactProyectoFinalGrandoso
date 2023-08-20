@@ -29,9 +29,19 @@ const ItemDetail = ({ product, id }) => {
                     {!showCompletePurchase ? (
                         <ItemCount setShowCompletePurchase={setShowCompletePurchase} product={product} quantity={quantity} handleIncrement={handleIncrement} handleDecrement={handleDecrement} id={product.id} />
                     ) : (
-                        <Link to="/cart">
-                            <Button variant="primary">Complete Purchase</Button>
-                        </Link>
+                        <div>
+                            <div className="added-message">
+                                <p><strong>{quantity} x {product.name}</strong> succesfully added to your cart!</p>
+                            </div>
+                            <div>
+                            <Link to="/category/all">
+                                <Button className="m-2" variant="secondary">Keep shopping</Button>
+                            </Link>
+                            <Link to="/cart">
+                                <Button className="m-2" variant="primary">Go to cart</Button>
+                            </Link>
+                            </div>
+                        </div>
                     )}
                 </Card.Body>
             </Card>

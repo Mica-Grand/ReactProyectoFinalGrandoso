@@ -54,7 +54,7 @@
 
 .hero-button {
     margin-top: 1rem;
-    background-color: #ffd700;
+    background-color: #E94560;
     color: #fff;
     font-family: 'Crimson Text', serif;
     font-size: 1.5rem;
@@ -69,7 +69,7 @@
 }
 
 .hero-button:hover {
-    background-color: #ffec80;
+    background-color: #D4344E;
 }
 
 /* ItemCount */
@@ -115,7 +115,7 @@
 }
 
 
-/* Estilos para los botones de las item cards */
+/* item card styles */
 
 .custom-btn {
     font-size: 14px;
@@ -169,4 +169,48 @@
     outline: none; 
     background-color: #E94560; 
     color: #fff; 
+}
+
+.added-message{
+    color: #E94560;
+}
+
+
+/* form buttons styles */
+
+.btn-secondary {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #222;
+    border-color: #222;
+}
+
+.btn-primary {
+    background-color: #E94560;
+    border-color: #E94560;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #D4344E;
+    border-color: #D4344E;
+}
+
+/* cart */
+.trash-icon {
+    color: #E94560; 
+    cursor: pointer;
+    font-size: 24px;
 }
