@@ -5,7 +5,7 @@ import aboutImage from '../assets/img/aboutImage.avif';
 const About = () => {
     return (
         <div>
-            <Container className="margin">
+            <Container className="margin margin-bottom">
                 <h1>About us</h1>
                 <Row>
                     <Col md={6}>
@@ -19,7 +19,7 @@ const About = () => {
                             </p>
                             <p className="font-weight-bold">
                                 Join us on this exciting journey where we blend elegance with fun, sophistication with sass, and glam with a touch of rebelliousness. So, get ready to let your inner star shine and embrace the <strong>Pop Glam</strong> lifestyle. Discover your beauty, your way. ✨
-                           </p>
+                            </p>
                         </div>
                     </Col>
                     <Col md={6}>

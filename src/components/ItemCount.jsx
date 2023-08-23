@@ -20,7 +20,6 @@ const ItemCount = ({quantity, setShowCompletePurchase, handleDecrement, handleIn
         }
 
         setShowCompletePurchase(true);
-        console.log(cart)
     };
 
     

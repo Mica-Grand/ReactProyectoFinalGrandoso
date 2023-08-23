@@ -95,7 +95,6 @@
     font-weight: bold;
     margin: 0;
     color: #444;
-    /* Texto en tono gris oscuro */
 }
 
 .count-button {
@@ -152,6 +151,10 @@
 
 .margin {
     margin-top: 15rem;
+}
+
+.margin-bottom{
+    margin-bottom: 10rem;
 }
 
 .custom-img {

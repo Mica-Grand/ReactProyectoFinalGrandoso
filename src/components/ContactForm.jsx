@@ -31,10 +31,10 @@ const ContactForm = () => {
     return (
         <div>
             {confirmation ? (
-                <div>
+                <div className="margin-bottom">
                     <h2 className="m-5">Message received!</h2>
-                    <p className="lead">
-                        Thank you for reaching out! We've received your message and will be in touch soon.
+                    <p className="lead margin-bottom pb-5">
+                        {name}, thank you for reaching out! We've received your message and will be in touch soon.
                     </p>
                 </div>
             ) : (
@@ -44,13 +44,13 @@ const ContactForm = () => {
                     <Form className="m-5" onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter your name"
+                            <Form.Control type="text" placeholder="Enter your name" required
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email"
+                            <Form.Control type="email" placeholder="Enter email" required
                                 onChange={(e) => setEmail(e.target.value)}
 
                             />
@@ -58,7 +58,7 @@ const ContactForm = () => {
 
                         <Form.Group className="mb-3">
                             <Form.Label>Write your message here</Form.Label>
-                            <Form.Control as="textarea" rows={3}
+                            <Form.Control as="textarea" rows={3} required
                                 onChange={(e) => setMessage(e.target.value)}
                             />
                         </Form.Group>

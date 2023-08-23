@@ -34,7 +34,7 @@ const Cart = () => {
     return (
         <div>
             {currentStep === "cart" && (
-                <Container>
+                <Container className="margin-bottom">
                     <h1 className="margin">Cart</h1>
                     <Container>
                         <ListGroup className="mt-5">
@@ -84,8 +84,8 @@ const Cart = () => {
                                         </div>
                                     </Row>
                                 </ListGroup.Item>) :
-                                <div>
-                                    <h2>Your cart is empty</h2>
+                                <div className="margin-bottom">
+                                    <h2>Your cart is empty =(</h2>
                                     <Link to={`/category/all`}>
                                         <Button className="m-3">Start shopping!</Button>
                                     </Link>

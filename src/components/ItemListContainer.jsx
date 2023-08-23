@@ -25,7 +25,7 @@ const ItemListContainer = () => {
     }, []);
 
 
-    const filteredProducts = category && category !== "all" ? products.filter((product) => product.category === category) : products;
+    const filteredProducts = category !== undefined ? products.filter((product) => product.category === category) : products;
     const title = category
 
     return (

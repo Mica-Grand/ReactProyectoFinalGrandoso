@@ -19,7 +19,7 @@ const ItemDetail = ({ product, id }) => {
     };
 
     return (
-        <Container className="margin">
+        <Container className="margin margin-bottom">
             <Card style={{ width: '25rem' }}>
                 <Card.Img variant="top" src={product.picture} alt={product.name} />
                 <Card.Body>

@@ -8,7 +8,7 @@ const Contact = () => {
             <Container className="margin">
                 <h1>Contact Us</h1>
             </Container>
-            <Container>
+            <Container className="margin-bottom">
                 <ContactForm />
             </Container>
         </div>
