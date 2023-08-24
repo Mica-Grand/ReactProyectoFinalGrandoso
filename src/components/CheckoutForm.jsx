@@ -16,6 +16,7 @@ const CheckoutForm = ({ handleGoBack, total }) => {
     const [confirmation, setConfirmation] = useState(false)
     const [cartCopy, setCartCopy] = useState([]);
     const cartCopyTotal = cartCopy.reduce((total, product) => total + product.price * product.quantity, 0);
+    const date = new Date();
 
 
     const { cart, setCart } = useContext(CartContext)
@@ -46,6 +47,10 @@ const CheckoutForm = ({ handleGoBack, total }) => {
 
         total: {
             total
+        },
+
+        date: {
+            date
         }
     }
 

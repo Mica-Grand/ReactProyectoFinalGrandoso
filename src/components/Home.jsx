@@ -12,7 +12,7 @@ const Home = ({greeting, slogan}) => {
                     <h1 className="greeting">{greeting}</h1>
                     <h2 className="slogan">{slogan}</h2>
                     <Link to={`/category/all`} >
-                        <button className="hero-button">Let's shine!</button>
+                        <button className="hero-button">Shop now!</button>
                     </Link>
                 </div>
             </div>
