@@ -25,14 +25,14 @@ const ItemListContainer = () => {
     }, []);
 
 
-    const filteredProducts = category !== undefined ? products.filter((product) => product.category === category) : products;
+    const filteredProducts =  products.filter((product) => product.category === category);
     const title = category
 
     return (
 
         <Container className="d-flex">
-            <ItemList products={filteredProducts} title={title}
-            />
+            {category ? <ItemList products={filteredProducts} title={title}/> : <ItemList products={products} />}
+            
         </Container>
     )
 }

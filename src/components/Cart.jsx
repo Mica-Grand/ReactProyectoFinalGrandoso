@@ -86,7 +86,7 @@ const Cart = () => {
                                 </ListGroup.Item>) :
                                 <div className="margin-bottom">
                                     <h2>Your cart is empty =(</h2>
-                                    <Link to={`/category/all`}>
+                                    <Link to={`/shop/all`}>
                                         <Button className="m-3">Start shopping!</Button>
                                     </Link>
                                 </div>

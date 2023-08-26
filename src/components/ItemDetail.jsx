@@ -34,7 +34,7 @@ const ItemDetail = ({ product, id }) => {
                                 <p><strong>{quantity} x {product.name}</strong> succesfully added to your cart!</p>
                             </div>
                             <div>
-                            <Link to="/category/all">
+                            <Link to="/shop/all">
                                 <Button className="m-2" variant="secondary">Keep shopping</Button>
                             </Link>
                             <Link to="/cart">

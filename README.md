@@ -1,6 +1,6 @@
 
 # REACT - Coderhouse
-## Segunda Preentrega del Proyecto
+## Proyecto Final
 ## Alumna: Grandoso, Micaela 
 
 ### Descripción
@@ -20,7 +20,7 @@ Mi proyecto es un E-commerce de productos de cosmética y maquillaje.
 ### Instalación
 
 **1. Clonar el repositorio**  
-git clone <https://github.com/Mica-Grand/PreEntrega2Grandoso>
+git clone <https://github.com/Mica-Grand/ReactProyectoFinalGrandoso>
 
 **2. Navegar al directorio del proyecto**   
 cd makeup-mica

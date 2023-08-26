@@ -30,6 +30,10 @@ const NavBar = () => {
                         >
                             <NavLink to={"/"} className="nav-link">Home</NavLink>
                             <NavDropdown title="Shop" id="navbarScrollingDropdown">
+                                <NavLink to={"/shop/all"} className="dropdown-item">
+                                    All
+                                </NavLink>
+                                <NavDropdown.Divider />
                                 <NavLink to={`/category/${"makeup"}`} className="dropdown-item">
                                     Make up
                                 </NavLink>
@@ -41,11 +45,7 @@ const NavBar = () => {
                                 <NavLink to={`/category/${"accesories"}`} className="dropdown-item">
                                     Accesories
                                 </NavLink>
-                                <NavDropdown.Divider />
-                                <NavLink to={`/category/all`} className="dropdown-item">
-                                    All
-                                </NavLink>
-
+                            
                             </NavDropdown>
                             <NavLink to={"/contact"} className="nav-link">
                                 Contact
