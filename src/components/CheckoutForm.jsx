@@ -11,6 +11,8 @@ const CheckoutForm = ({ handleGoBack, total }) => {
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
+    const [confirmEmail, setConfirmEmail] = useState("")
+    const [error, setError] = useState("");
     const [phone, setPhone] = useState("")
     const [orderId, setOrderId] = useState(null)
     const [confirmation, setConfirmation] = useState(false)
@@ -23,13 +25,22 @@ const CheckoutForm = ({ handleGoBack, total }) => {
 
     const db = getFirestore()
 
+    const handleError = (errorMessage) => {
+        setError(errorMessage);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        addDoc(ordersCollection, order).then(({ id }) =>
-            setOrderId(id))
-        setConfirmation(true)
-        setCartCopy([...cart])
-        setCart([])
+        if (email !== confirmEmail) {
+            handleError("The emails don't match");
+        } else {
+            handleError("");
+            addDoc(ordersCollection, order).then(({ id }) =>
+                setOrderId(id))
+            setConfirmation(true)
+            setCartCopy([...cart])
+            setCart([])
+        }
     }
 
 
@@ -75,8 +86,8 @@ const CheckoutForm = ({ handleGoBack, total }) => {
                         {cartCopy.map((item, id) => (
                             <ListGroupItem key={id}>
                                 <div className="d-flex justify-content-between align-items-center">
-                                <img
-                                        src={item.picture}  
+                                    <img
+                                        src={item.picture}
                                         alt={item.name}
                                         style={{ maxWidth: '70px', maxHeight: '70px' }}
                                     />
@@ -107,11 +118,22 @@ const CheckoutForm = ({ handleGoBack, total }) => {
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="emailField">
+                        <Form.Group className={`mb-3 ${error ? 'has-error' : ''}`} controlId="emailField">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter your email" required
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                        </Form.Group>
+                        <Form.Group className={`mb-3 ${error ? 'has-error' : ''}`} controlId="confirmEmailField">
+                            <Form.Label>Confirm Email address</Form.Label>
+                            <Form.Control
+                                type="email"
+                                placeholder="Confirm your email"
+                                required
+                                onChange={(e) => setConfirmEmail(e.target.value)}
+                            />
+                            {error && <div className="error-message">{error}</div>}
+
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="phoneField">
                             <Form.Label>Phone Number</Form.Label>

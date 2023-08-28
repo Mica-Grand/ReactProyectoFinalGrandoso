@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import aboutImage from '../assets/img/aboutImage.avif';
 
 const About = () => {
     return (
@@ -23,7 +22,7 @@ const About = () => {
                         </div>
                     </Col>
                     <Col md={6}>
-                        <img src={aboutImage} alt="Pop Glam" className="about-image img-fluid" />
+                        <img src="https://images.pexels.com/photos/7312328/pexels-photo-7312328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="girl wearing makeup" className="about-image img-fluid" />
                     </Col>
                 </Row>
             </Container>

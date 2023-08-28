@@ -225,3 +225,13 @@
     cursor: pointer;
     font-size: 24px;
 }
+
+
+/* checkout form */
+
+.has-error .form-control {
+    border-color: red;
+}
+.has-error .error-message {
+    color: red;
+}
