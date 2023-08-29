@@ -42,13 +42,13 @@ const ContactForm = () => {
                     <p className="lead">We want to hear from you, gorgeous.
                         Please flick us a message using the form below.</p>
                     <Form className="m-5" onSubmit={handleSubmit}>
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-3" controlId="name">
                             <Form.Label>Name</Form.Label>
                             <Form.Control type="text" placeholder="Enter your name" required
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-3" controlId="email">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" required
                                 onChange={(e) => setEmail(e.target.value)}
@@ -56,7 +56,7 @@ const ContactForm = () => {
                             />
                         </Form.Group>
 
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-3" controlId="message">
                             <Form.Label>Write your message here</Form.Label>
                             <Form.Control as="textarea" rows={3} required
                                 onChange={(e) => setMessage(e.target.value)}
