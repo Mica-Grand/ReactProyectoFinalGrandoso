@@ -15,7 +15,7 @@
     position: relative;
     height: 100%;
     width: 100%;
-    background-image: url('/src/assets/img/pexels-mikhail-nilov-6834393.jpg');
+    background-image: url("./assets/img/pexels-mikhail-nilov-6834393.jpg");
     background-size: cover;
     background-position: center center;
 }
