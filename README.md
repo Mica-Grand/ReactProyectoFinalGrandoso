@@ -23,7 +23,7 @@ Mi proyecto es un E-commerce de productos de cosmética y maquillaje.
 git clone <https://github.com/Mica-Grand/ReactProyectoFinalGrandoso>
 
 **2. Navegar al directorio del proyecto**   
-cd makeup-mica
+cd ReactProyectoFinalGrandoso
 
 **3. Instalar dependencias**  
 npm install  
